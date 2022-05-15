@@ -21,6 +21,7 @@ Guides for making Linux Mint more habitable to Mac users.
 - [ ] Changing the System Font
 - [ ] Rearranging the Close/Minimize/Maximize Window Buttons
 - [ ] Playing Gapless Albums in Rhythmbox
+- [ ] Running the Classic Mac "Flurry" Scrensaver with [xscreensaver](https://www.jwz.org/xscreensaver/)
 - [ ] Installing [Pale Moon](https://www.palemoon.org/) and the [xmoon](https://addons.palemoon.org/addon/xmoon/) Theme
 - [ ] Making Option/Alt Not Focus The Menu in Visual Studio Code.
 - [ ] Freeing Up Disk Space With `journalctl`
