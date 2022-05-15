@@ -14,6 +14,7 @@ Guides for making Linux Mint more habitable to Mac users.
 - [ ] Installing a macOS Cursor Theme
 - [ ] Showing Scrollbars
 - [ ] Installing a Custom [Desktop Theme](https://github.com/benchristel/Mint-X-Hacks)
+- [ ] Adding a [Dock (Plank)](https://github.com/benchristel/plank-theme-osx)
 - [ ] Customizing the Login Screen
 - [ ] Running Windows Games from Steam with Proton
 - [ ] Running Windows Games with Wine
