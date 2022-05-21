@@ -34,6 +34,9 @@ run sudo apt install systemtap-sdt-dev
 # install Obsidian
 run flatpak install flathub md.obsidian.Obsidian
 
+# install ccsm
+run sudo apt install compizconfig-settings-manager
+
 # create ~/.config
 manual "Move or delete your ~/.config directory."
 run git clone https://github.com/benchristel/config ~/.config
