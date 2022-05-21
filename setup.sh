@@ -51,4 +51,4 @@ EOF
 run sudo su root -c "echo '$USER ALL=NOPASSWD:/home/$USER/workspace/xkeysnail-macos-keymap/run' >/etc/sudoers.d/xkeysnail"
 run sudo su root -c "chmod 440 /etc/sudoers.d/xkeysnail"
 
-manual "Log out and log in for changes to take effect."
+manual "Reboot for changes to take effect."
