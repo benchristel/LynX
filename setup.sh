@@ -12,8 +12,16 @@ manual() {
 
 run mkdir -p ~/workspace
 
+# upgrade kernel to 5.14
+run sudo apt install linux-oem-20.04d
+
+# install vim
 run sudo apt install vim
+
+# install git
 run sudo apt install git
+
+# install xclip
 run sudo apt install xclip
 
 # install pip3, for xkeysnail
