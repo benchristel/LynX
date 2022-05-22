@@ -37,6 +37,16 @@ run flatpak install flathub md.obsidian.Obsidian
 # install ccsm
 run sudo apt install compizconfig-settings-manager
 
+# install cursor theme
+# this should be done before setting up ~/.config, since the dconf database
+# references this theme.
+run git clone https://github.com/benchristel/macos-cursor-theme ~/.icons/macos-cursor-theme
+
+# install icon theme
+# this should be done before setting up ~/.config, since the dconf database
+# references this theme.
+run git clone https://github.com/benchristel/linux-mint-icons-osx ~/.icons/osx
+
 # create ~/.config
 manual "Move or delete your ~/.config directory."
 run git clone https://github.com/benchristel/config ~/.config
