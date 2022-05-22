@@ -1,6 +1,17 @@
 # polished-linux
 
-Guides for making Linux Mint more habitable to Mac users.
+Configures Linux Mint to work more or less like macOS.
+
+The target is Mac OSX 10.6.
+
+## Getting Started
+
+1. [Buy a Framework Laptop](https://frame.work)
+1. [Install Linux Mint Cinnamon 20.3 Edge](https://www.linuxmint.com/edition.php?id=296)
+1. Run the following in the terminal. You will be prompted for your password. At several points there will be manual steps that you have to perform.
+   ```bash
+   curl -o /tmp/setup.sh https://raw.githubusercontent.com/benchristel/polished-linux/main/setup.sh && bash /tmp/setup.sh
+   ```
 
 ## Aspirational Table of Contents
 
