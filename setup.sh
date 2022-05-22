@@ -47,6 +47,9 @@ run git clone https://github.com/benchristel/macos-cursor-theme ~/.icons/macos-c
 # references this theme.
 run git clone https://github.com/benchristel/linux-mint-icons-osx ~/.icons/osx
 
+# install theme for controls and window borders
+run git clone https://github.com/benchristel/Mint-X-Hacks ~/.themes/osx
+
 # create ~/.config
 manual "Move or delete your ~/.config directory."
 run git clone https://github.com/benchristel/config ~/.config
