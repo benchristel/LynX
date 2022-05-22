@@ -64,6 +64,16 @@ run flatpak install flathub md.obsidian.Obsidian
 # install ccsm
 run sudo apt install compizconfig-settings-manager
 
+# set up bashrc
+if ! grep '. ~/.bash_customizations' ~/.bashrc; then
+  cat >> ~/.bashrc <<EOF
+if [ -f ~/.bash_customizations ]; then
+  . ~/.bash_customizations
+fi
+EOF
+fi
+
+run curl -o ~/.bash_customizations https://raw.githubusercontent.com/benchristel/polished-linux/main/bash_customizations
 # install cursor theme
 # this should be done before setting up ~/.config, since the dconf database
 # references this theme.
@@ -93,16 +103,6 @@ Type=Application
 EOF
 run sudo su root -c "echo '$USER ALL=NOPASSWD:/home/$USER/workspace/xkeysnail-macos-keymap/run' >/etc/sudoers.d/xkeysnail"
 run sudo su root -c "chmod 440 /etc/sudoers.d/xkeysnail"
-
-# set up bashrc
-if ! grep '. ~/.bash_customizations' ~/.bashrc; then
-  cat >> ~/.bashrc <<EOF
-if [ -f ~/.bash_customizations ]; then
-  . ~/.bash_customizations
-fi
-EOF
-fi
-run curl -o ~/.bash_customizations https://raw.githubusercontent.com/benchristel/polished-linux/main/bash_customizations
 
 manual "Right-click the Linux Mint menu in the lower left corner of the screen, choose Configure from the menu that pops up, and change the 'keyboard shortcut to open and close the menu' to Super+Space"
 
