@@ -64,6 +64,10 @@ run flatpak install flathub md.obsidian.Obsidian
 # install ccsm
 run sudo apt install compizconfig-settings-manager
 
+# install default Windows fonts: Andale Mono, Arial Black, Arial, Comic Sans,
+# Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
+run sudo apt install ttf-mscorefonts-installer
+
 # set up bashrc
 if ! grep '. ~/.bash_customizations' ~/.bashrc; then
   cat >> ~/.bashrc <<EOF
