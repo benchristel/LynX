@@ -20,6 +20,8 @@ run sudo apt install vim
 
 # install git
 run sudo apt install git
+run git config --global alias.co checkout
+run git config --global alias.st status
 
 # install xclip
 run sudo apt install xclip
