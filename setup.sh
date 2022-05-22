@@ -1,6 +1,31 @@
-run() {
+TXN_ID=0
+START_AT="${1:-0}"
+
+announce() {
+  echo -ne "\e[36m"
   echo "$@"
-  "$@" || exit 1
+  echo -ne "\e[0m"
+}
+
+transact() {
+  TXN_ID=$((TXN_ID + 1))
+  if [ "$START_AT" -gt "$TXN_ID" ]; then
+    return 0
+  fi
+  "$@" || {
+    echo
+    echo "*** FAILED ***"
+    echo "Fix up the error; then try again by running:"
+    echo "  bash setup.sh $TXN_ID"
+    echo "To skip this step, run:"
+    echo "  bash setup.sh $((TXN_ID + 1))"
+    exit 1
+  }
+}
+
+run() {
+  announce "$@"
+  transact "$@"
 }
 
 manual() {
