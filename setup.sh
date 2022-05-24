@@ -64,6 +64,9 @@ run flatpak install flathub md.obsidian.Obsidian
 # install ccsm
 run sudo apt install compizconfig-settings-manager
 
+# install gconf-editor
+run sudo apt install gconf-editor
+
 # install default Windows fonts: Andale Mono, Arial Black, Arial, Comic Sans,
 # Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
 run sudo apt install ttf-mscorefonts-installer
@@ -78,6 +81,11 @@ EOF
 fi
 
 run curl -o ~/.bash_customizations https://raw.githubusercontent.com/benchristel/polished-linux/main/bash_customizations
+
+# install docky
+run curl -o /tmp/docky.sh https://raw.githubusercontent.com/benchristel/polished-linux/main/docky.sh
+run /tmp/docky.sh
+
 # install cursor theme
 # this should be done before setting up ~/.config, since the dconf database
 # references this theme.
@@ -111,5 +119,7 @@ run sudo su root -c "chmod 440 /etc/sudoers.d/xkeysnail"
 manual "Right-click the Linux Mint menu in the lower left corner of the screen, choose Configure from the menu that pops up, and change the 'keyboard shortcut to open and close the menu' to Super+Space"
 
 manual "In the Firefox location bar, go to about:config, search for ui.key.menuAccessKeyFocuses, and set the Value to false."
+
+manual "Run gconf-editor. Navigate to apps/docky-2/docky/items/DockyItem and deselect ShowDockyItem."
 
 manual "Reboot for changes to take effect."
