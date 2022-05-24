@@ -102,6 +102,7 @@ run git clone https://github.com/benchristel/Mint-X-Hacks ~/.themes/osx
 # create ~/.config
 manual "Move or delete your ~/.config directory."
 run git clone https://github.com/benchristel/config ~/.config
+run dconf load / < ~/.config/dconf.ini
 
 # set up xkeysnail with macOS keybindings
 run git clone https://github.com/benchristel/xkeysnail-macos-keymap ~/workspace/xkeysnail-macos-keymap
