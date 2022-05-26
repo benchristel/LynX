@@ -125,6 +125,11 @@ manual "Right-click the Linux Mint menu in the lower left corner of the screen, 
 
 manual "In the Firefox location bar, go to about:config, search for ui.key.menuAccessKeyFocuses, and set the Value to false."
 
+manual "In Firefox's settings, change the default font to Times New Roman"
+
 manual "Run gconf-editor. Navigate to apps/docky-2/docky/items/DockyItem and deselect ShowDockyItem."
+
+# TODO: automate this if it turns out that gtk3-classic is a good idea
+manual "Install gtk3-classic. See the polished-linux wiki for instructions"
 
 manual "Reboot for changes to take effect."
