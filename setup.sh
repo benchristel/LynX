@@ -67,6 +67,10 @@ run sudo apt install compizconfig-settings-manager
 # install gconf-editor
 run sudo apt install gconf-editor
 
+# install the GTK inspector
+run sudo apt install libgtk-3-dev
+gsettings set org.gtk.Settings.Debug enable-inspector-keybinding true
+
 # install default Windows fonts: Andale Mono, Arial Black, Arial, Comic Sans,
 # Courier New, Georgia, Impact, Times New Roman, Trebuchet, Verdana, Webdings
 run sudo apt install ttf-mscorefonts-installer
