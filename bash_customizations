@@ -4,7 +4,7 @@ alias gs="git status"
 
 del() {
   while [ -n "$1" ]; do
-    mv "$1" "/tmp/${1}.$(date +%Y-%m-%d-%H-%M-%S)"
+    mv "$1" "/tmp/$(basename "$1").$(date +%Y-%m-%d-%H-%M-%S)"
     shift
   done
 }
