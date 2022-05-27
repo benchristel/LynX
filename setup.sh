@@ -88,7 +88,7 @@ run curl -o ~/.bash_customizations https://raw.githubusercontent.com/benchristel
 
 # install docky
 run curl -o /tmp/docky.sh https://raw.githubusercontent.com/benchristel/polished-linux/main/docky.sh
-run /tmp/docky.sh
+run bash /tmp/docky.sh
 
 # install cursor theme
 # this should be done before setting up ~/.config, since the dconf database
