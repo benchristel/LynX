@@ -107,6 +107,8 @@ Comment=The finest dock no money can buy.
 NoDisplay=false
 Categories=Utility;
 EOF
+run bash -c "git clone https://github.com/benchristel/docky-frost ~/.local/share/docky/themes/Frost || test -d ~/.local/share/docky/themes/Frost"
+run gconftool-2 --set "/apps/docky-2/Docky/Services/ThemeService/Theme" --type string Frost
 
 # install cursor theme
 # this should be done before setting up ~/.config, since the dconf database
