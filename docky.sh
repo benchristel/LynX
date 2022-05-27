@@ -18,4 +18,5 @@ sudo apt-get install ./docky_2.2.1.1-1_all.deb
   # configure docky
   gconftool-2 --set "/apps/docky-2/Docky/Services/ThemeService/Theme" --type string Glass
   gconftool-2 --set "/apps/docky-2/Docky/Services/ThemeService/UrgentHue" --type int 0
+  gconftool-2 --set "/apps/docky-2/Docky/Items/DockyItem/ShowDockyItem" --type bool false
 )

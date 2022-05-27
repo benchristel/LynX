@@ -16,9 +16,9 @@ transact() {
     echo
     echo "*** FAILED ***"
     echo "Fix up the error; then try again by running:"
-    echo "  bash setup.sh $TXN_ID"
+    echo "  bash $0 $TXN_ID"
     echo "To skip this step, run:"
-    echo "  bash setup.sh $((TXN_ID + 1))"
+    echo "  bash $0 $((TXN_ID + 1))"
     exit 1
   }
 }
@@ -33,6 +33,10 @@ manual() {
   echo "$1"
   echo -n "Then press ENTER to continue."
   read
+}
+
+backup() {
+  mv "$1" "/tmp/$(basename "$1").$(date +%Y-%m-%d-%H-%M-%S)"
 }
 
 run mkdir -p ~/workspace
@@ -87,29 +91,62 @@ fi
 run curl -o ~/.bash_customizations https://raw.githubusercontent.com/benchristel/polished-linux/main/bash_customizations
 
 # install docky
-run curl -o /tmp/docky.sh https://raw.githubusercontent.com/benchristel/polished-linux/main/docky.sh
-run bash /tmp/docky.sh
+# Name the install script after the user, to avoid collisions with install
+# scripts that other users may have placed in /tmp by running this script.
+DOCKY_INSTALL_SCRIPT=/tmp/docky-${USER}.sh
+run curl -o "$DOCKY_INSTALL_SCRIPT" https://raw.githubusercontent.com/benchristel/polished-linux/main/docky.sh
+run bash "$DOCKY_INSTALL_SCRIPT"
+cat > ~/.config/autostart/docky.desktop <<EOF
+[Desktop Entry]
+Name=Docky
+Type=Application
+Exec=docky
+Terminal=false
+Icon=docky
+Comment=The finest dock no money can buy.
+NoDisplay=false
+Categories=Utility;
+EOF
 
 # install cursor theme
 # this should be done before setting up ~/.config, since the dconf database
 # references this theme.
-run git clone https://github.com/benchristel/macos-cursor-theme ~/.icons/macos-cursor-theme
+# The || test -d at the end recovers from a git clone error if the repository
+# already exists.
+run bash -c "git clone https://github.com/benchristel/macos-cursor-theme ~/.icons/macos-cursor-theme || test -d ~/.icons/macos-cursor-theme"
 
 # install icon theme
 # this should be done before setting up ~/.config, since the dconf database
 # references this theme.
-run git clone https://github.com/benchristel/linux-mint-icons-osx ~/.icons/osx
+run bash -c "git clone https://github.com/benchristel/linux-mint-icons-osx ~/.icons/osx || test -d ~/.icons/osx"
 
 # install theme for controls and window borders
-run git clone https://github.com/benchristel/Mint-X-Hacks ~/.themes/osx
+run bash -c "git clone https://github.com/benchristel/Mint-X-Hacks ~/.themes/osx || test -d ~/.themes/osx"
+run ~/.themes/osx/install.sh
 
-# create ~/.config
-manual "Move or delete your ~/.config directory."
-run git clone https://github.com/benchristel/config ~/.config
+# set up ~/.config
+run curl -o ~/.config/dconf.ini \
+  https://raw.githubusercontent.com/benchristel/config/main/dconf.ini
+run curl -o ~/.config/cinnamon-monitors.xml \
+  https://raw.githubusercontent.com/benchristel/config/main/cinnamon-monitors.xml
 run dconf load / < ~/.config/dconf.ini
 
+# configure cinnamon
+# Name the tmp repo after the user to avoid collisions with other users who may
+# be running this script simultaneously
+TMP_CINNAMON_CONFIG=/tmp/cinnamon-config-$USER
+run bash -c "git clone https://github.com/benchristel/cinnamon-config '$TMP_CINNAMON_CONFIG' || test -d '$TMP_CINNAMON_CONFIG'"
+run backup ~/.cinnamon/configs
+run mv "$TMP_CINNAMON_CONFIG" ~/.cinnamon/configs
+
+# configure redshift
+run curl -o ~/.config/redshift.conf \
+  https://raw.githubusercontent.com/benchristel/config/main/redshift.conf
+run curl -o ~/.config/autostart/redshift-gtk.desktop \
+  https://raw.githubusercontent.com/benchristel/config/main/autostart/redshift-gtk.desktop
+
 # set up xkeysnail with macOS keybindings
-run git clone https://github.com/benchristel/xkeysnail-macos-keymap ~/workspace/xkeysnail-macos-keymap
+run bash -c "git clone https://github.com/benchristel/xkeysnail-macos-keymap ~/workspace/xkeysnail-macos-keymap || test -d ~/workspace/xkeysnail-macos-keymap"
 echo "Creating .config/autostart/xkeysnail.desktop"
 >~/.config/autostart/xkeysnail.desktop cat <<EOF
 [Desktop Entry]
@@ -118,8 +155,8 @@ Comment=remap keyboard input
 Exec=sudo /home/${USER}/workspace/xkeysnail-macos-keymap/run
 Type=Application
 EOF
-run sudo su root -c "echo '$USER ALL=NOPASSWD:/home/$USER/workspace/xkeysnail-macos-keymap/run' >/etc/sudoers.d/xkeysnail"
-run sudo su root -c "chmod 440 /etc/sudoers.d/xkeysnail"
+run sudo su root -c "echo '$USER ALL=NOPASSWD:/home/$USER/workspace/xkeysnail-macos-keymap/run' >/etc/sudoers.d/xkeysnail-$USER"
+run sudo su root -c "chmod 440 /etc/sudoers.d/xkeysnail-$USER"
 
 manual "Right-click the Linux Mint menu in the lower left corner of the screen, choose Configure from the menu that pops up, and change the 'keyboard shortcut to open and close the menu' to Super+Space"
 
@@ -127,9 +164,9 @@ manual "In the Firefox location bar, go to about:config, search for ui.key.menuA
 
 manual "In Firefox's settings, change the default font to Times New Roman"
 
-manual "Run gconf-editor. Navigate to apps/docky-2/docky/items/DockyItem and deselect ShowDockyItem."
-
 # TODO: automate this if it turns out that gtk3-classic is a good idea
 manual "Install gtk3-classic. See the polished-linux wiki for instructions"
 
-manual "Reboot for changes to take effect."
+echo
+echo "*** Success! ***"
+echo "Reboot for changes to take effect."
