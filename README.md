@@ -4,6 +4,8 @@ Configures Linux Mint to work more or less like macOS.
 
 The target is Mac OSX 10.6.
 
+![screenshot](screenshot.png)
+
 ## Getting Started
 
 1. [Buy a Framework Laptop](https://frame.work)
