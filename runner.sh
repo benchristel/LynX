@@ -4,6 +4,9 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 
 cd "$HERE/steps"
 
+export MANUAL="/tmp/manual.txt"
+rm -f "$MANUAL"
+
 ls *.sh | sort -n | \
     while read SCRIPT_NAME; do
         SCRIPT_PATH="$HERE/steps/$SCRIPT_NAME"
@@ -23,5 +26,7 @@ ls *.sh | sort -n | \
 if [ "$?" == 0 ]; then
     echo
     echo "-------------------------------------------------------------"
-    echo "All done! Reboot for all changes to take effect."
+    echo "Almost done! You just need to:"
+    echo "- cat $MANUAL for recommended manual setup steps"
+    echo "- Reboot for all changes to take effect."
 fi

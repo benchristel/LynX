@@ -1,6 +1,8 @@
 #!/bin/bash -eu
 
-echo "*** MANUAL ACTION RECOMMENDED ***"
-echo "$1"
-echo -n "Then press ENTER to continue: "
-read
+if ! [ -f "$MANUAL" ]; then
+    >>"$MANUAL" echo "Recommended manual setup steps:"
+    >>"$MANUAL" echo
+fi
+
+>>"$MANUAL" echo "- $1"
