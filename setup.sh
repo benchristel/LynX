@@ -4,7 +4,8 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 
 cd "$HERE/steps"
 
-export MANUAL="/tmp/manual.txt"
+export TMP="$(mktemp -d)"
+export MANUAL="$TMP/manual.txt"
 rm -f "$MANUAL"
 
 ls *.sh | sort -n | \

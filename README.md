@@ -11,7 +11,7 @@ The target is Mac OSX 10.6.
 1. [Install Linux Mint Cinnamon 20.3 Edge](https://www.linuxmint.com/edition.php?id=296)
 1. Run the following in the terminal. You will be prompted for your password.
    ```bash
-   cd /tmp
+   cd `mktemp -d`
    wget -O polished-linux.zip https://github.com/benchristel/polished-linux/archive/refs/heads/main.zip
    unzip polished-linux.zip
    polished-linux-main/setup.sh
