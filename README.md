@@ -23,4 +23,5 @@ The target is Mac OSX 10.6.
 - Dock configuration and theme
 - macOS keybindings (e.g. Super+C instead of Ctrl+C to copy)
 - OSX-style icons and cursors
+- The classic OSX "Flurry" screensaver
 - ...and more!
