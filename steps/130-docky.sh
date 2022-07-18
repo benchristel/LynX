@@ -49,6 +49,9 @@ gconftool-2 --set "/apps/docky-2/Docky/Interface/DockPreferences/Dock1/SortList"
 /usr/share/applications/cinnamon-settings.desktop,\
 TrashCan]"
 
+# Launch on login
+lib/copy.sh data/docky.desktop ~/.config/autostart/docky.desktop
+
 # install Frost theme
 lib/github-clone.sh benchristel/docky-frost ~/.local/share/docky/themes/Frost
 gconftool-2 --set "/apps/docky-2/Docky/Services/ThemeService/Theme" --type string Frost
