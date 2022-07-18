@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 lib/install.sh xscreensaver
 lib/install.sh xscreensaver-data
