@@ -4,6 +4,7 @@ SRC="$1"
 DEST="$2"
 
 if [ -e "$DEST" ]; then
+    echo "File $DEST already exists. Leaving it alone."
     exit 0
 fi
 
