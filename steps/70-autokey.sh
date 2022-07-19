@@ -7,7 +7,7 @@ lib/install.sh autokey-gtk
 # autokey to launch correctly the first time the user reboots. If autokey is
 # launched for the first time with autokeyconf config already in place,
 # keybindings don't work.
-autokey-gtk
+gtk-launch autokey-gtk >/dev/null 2>&1
 
 # Set up macOS-like keybindings
 lib/github-clone.sh benchristel/autokeyconf
