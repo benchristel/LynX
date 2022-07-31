@@ -25,3 +25,42 @@ The target is Mac OSX 10.6.
 - OSX-style icons and cursors
 - The classic OSX "Flurry" screensaver
 - ...and more!
+
+## Map of Files Created/Modified
+
+```
+~/
+  .bashrc
+  .bashrc.d/
+  .cinnamon/configs/
+  .config/
+    redshift.conf
+    autostart/
+      docky.desktop
+      redshift-gtk.desktop
+      xscreensaver-daemon.desktop
+    gtk-3.0/
+      gtk.css
+      osx-gtk-overrides.css
+  .icons/
+    osx/
+    macos-cursor-theme/
+  .local/share/
+    docky/themes/Frost/
+    fonts/
+  .rubies/
+  .themes/osx/
+  workspace/benchristel/autokeyconf/
+```
+
+## Updating
+
+The installed themes are all git repos. To get the latest, do:
+
+```
+git -C ~/.icons/osx pull
+git -C ~/.icons/macos-cursor-theme pull
+git -C ~/.local/share/docky/themes/Frost pull
+git -C ~/.themes/osx pull
+~/.themes/osx/install.sh
+```
