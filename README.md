@@ -12,9 +12,9 @@ The target is Mac OS X 10.6.
 1. Run the following in the terminal. You will be prompted for your password.
    ```bash
    cd `mktemp -d`
-   wget -O polished-linux.zip https://github.com/benchristel/polished-linux/archive/refs/heads/main.zip
-   unzip polished-linux.zip
-   polished-linux-main/setup.sh
+   wget -O lynx.zip https://github.com/benchristel/LynX/archive/refs/heads/main.zip
+   unzip lynx.zip
+   LynX-main/setup.sh
    ```
 
 ## What's in the box?
