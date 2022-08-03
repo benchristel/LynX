@@ -1,6 +1,6 @@
-# polished-linux
+# LynX
 
-Configures Linux Mint to work more or less like macOS.
+Makes Linux Mint look and work like "big cat"-era Mac OS X 
 
 The target is Mac OSX 10.6.
 
