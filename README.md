@@ -2,7 +2,7 @@
 
 Makes Linux Mint look and work like "big cat"-era Mac OS X 
 
-The target is Mac OSX 10.6.
+The target is Mac OS X 10.6.
 
 ![screenshot](screenshot.png)
 
@@ -19,11 +19,10 @@ The target is Mac OSX 10.6.
 
 ## What's in the box?
 
-- OSX-style window borders and controls
+- Themes for window borders, controls, icons, and cursors
 - Dock configuration and theme
 - macOS keybindings (e.g. Super+C instead of Ctrl+C to copy)
-- OSX-style icons and cursors
-- The classic OSX "Flurry" screensaver
+- The classic OS X "Flurry" screensaver
 - ...and more!
 
 ## Map of Files Created/Modified
