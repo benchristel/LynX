@@ -12,10 +12,6 @@ gtk-launch autokey-gtk >/dev/null 2>&1
 # Set up macOS-like keybindings
 lib/github-clone.sh benchristel/autokeyconf
 pushd ~/workspace/benchristel/autokeyconf
-    # ~/.bashrc early-exits if not run from an interactive shell, so source
-    # ~/.bashrc.d/chruby directly
-    source ~/.bashrc.d/chruby
-    chruby 3
     ./autokeyconf example_config.yaml
 popd
 
