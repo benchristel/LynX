@@ -1,0 +1,7 @@
+alias open="xdg-open"
+alias pbcopy="xclip -sel c"
+alias pbpaste="xclip -o -sel c"
+
+say() {
+  echo "$@" | espeak
+}
