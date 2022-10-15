@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Swap Alt and Windows Keys
+Exec=dconf write /org/gnome/libgnomekbd/keyboard/options "['terminate\\tterminate:ctrl_alt_bksp', 'altwin\\taltwin:swap_lalt_lwin']"
+Comment=Makes Windows keyboards compatible with Mac muscle memory
+Terminal=false
+Icon=gnome-settings-keybindings
+Type=Application
+Name[en_US]=Swap Alt and Windows Keys

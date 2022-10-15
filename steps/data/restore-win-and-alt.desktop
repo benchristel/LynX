@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Restore Alt and Windows Keys
+Exec=dconf write /org/gnome/libgnomekbd/keyboard/options "['terminate\\tterminate:ctrl_alt_bksp']"
+Comment=The Windows key acts like Command on Mac
+Terminal=false
+Icon=gnome-settings-keybindings
+Type=Application
+Name[en_US]=Restore Alt and Windows Keys
