@@ -1,5 +1,5 @@
 #!/bin/bash -e
 
 if [ -f "$MANUAL" ]; then
-  xed "$MANUAL"
+  xed "$MANUAL" 2>&1 >/dev/null &
 fi

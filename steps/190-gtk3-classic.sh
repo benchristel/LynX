@@ -14,6 +14,10 @@ fi
 #
 # Unfortunately, this has the side effect of upgrading *every* package on the
 # system. I don't know how to just upgrade libgtk-3-*.
+#
+# Based on the output of `apt list | grep ~classic | grep installed`, it looks
+# like the solution might be:
+# sudo apt install --only-upgrade gir1.2-gtk-3.0 gtk-3-examples gtk-update-icon-cache libgail-3-0 libgtk-3-0 libgtk-3-bin libgtk-3-common libgtk-3-dev
 
 if ! [ -e /etc/apt/sources.list.d/lah7-gtk3-classic-focal.list ]; then
     sudo add-apt-repository ppa:lah7/gtk3-classic

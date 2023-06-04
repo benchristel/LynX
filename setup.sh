@@ -6,7 +6,7 @@ cd "$HERE/steps"
 
 export TMP="$(mktemp -d)"
 
-ls *.sh | sort -n | \
-    while read SCRIPT_NAME; do
-        "$HERE/run-step.sh" "$SCRIPT_NAME"
-    done
+STEPS=($(ls *.sh | sort -n))
+for STEP in "${STEPS[@]}"; do
+  "$HERE/run-step.sh" "$STEP" || exit 1
+done

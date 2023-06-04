@@ -7,4 +7,4 @@ if apt list --installed "$PACKAGE" 2>/dev/null | grep -q "$PACKAGE"; then
     exit 0
 fi
 
-sudo apt install "$PACKAGE"
+sudo apt install -y "$PACKAGE"
