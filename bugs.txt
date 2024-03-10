@@ -1,0 +1,11 @@
+apt problems
+
+apt install needs -y
+setup.sh needs -e, or it won't exit when there's an error in a step
+must run apt update first
+mscorefonts requires interactive eula acceptance
+setup.sh halts after installing docky??
+gtk3-classic has a custom install script and needs -y. it also has a bug where i
+f the ppa has been installed but gtk3 has not been upgraded, the script will be
+skipped.
+
